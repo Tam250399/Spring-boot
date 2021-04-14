@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Danh sách sản phẩm</h1>
+<a th:href="@{/products/create}">Tạo mới sản phẩm</a>
+<table border="1">
+    <tr>
+        <td>Tên sản phẩm</td>
+        <td>Gía Sản Phẩm</td>
+        <td>Anh sản phẩm</td>
+        <td>Mô tả sản phẩm</td>
+        <td>chỉnh sửa </td>
+        <td>xóa</td>
+    </tr>
+    <th:block th:each="product:${products}">
+        <tr>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.imgUrl}"></td>
+            <td th:text="${product.description}"></td>
+            <td><a th:href="@{/products/edit/__${product.id}__}">Edit</a></td>
+            <td><a th:href="@{/products/delete/__${product.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+
+</table>
+</body>
+</html>
